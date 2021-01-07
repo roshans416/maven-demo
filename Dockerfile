@@ -3,6 +3,6 @@ COPY  . /root/app/
 WORKDIR /root/app
 RUN mvn clean package
 FROM tomcat:8.0-alpine
-COPY --from=builder /root/app/target/addressbook-2.0.war /usr/local/tomcat/webapps/
+COPY --from=builder /root/app/target /usr/local/tomcat/webapps
 EXPOSE 8080
 CMD [“catalina.sh”, “run”]
